@@ -1,5 +1,5 @@
 FROM debian:jessie
-MAINTAINER Fernando Mayo <fernando@tutum.co>, Feng Honglin <hfeng@tutum.co>
+MAINTAINER Manuel de la Peña <manuel.delapenya@liferay.com>
 
 # Install packages
 ENV DEBIAN_FRONTEND noninteractive
