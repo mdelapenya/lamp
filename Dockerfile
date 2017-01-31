@@ -9,6 +9,8 @@ RUN echo 'deb http://repo.mysql.com/apt/debian jessie mysql-5.7' > /etc/apt/sour
   gpg --export 5072E1F5 > /etc/apt/trusted.gpg.d/5072E1F5.gpg && \
   apt-get update && \
   apt-get -y install supervisor git apache2 libapache2-mod-php5 mysql-server="5.7.17-1debian8" php5-mysql pwgen php-apc php5-mcrypt && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
   echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 # Add image configuration and scripts
