@@ -1,15 +1,15 @@
 ## Usage
 
-To create the image `tutum/lamp`, execute the following command on the tutum-docker-lamp folder:
+To create the image `mdelapenya/lamp`, execute the following command on the mdelapenya-docker-lamp folder:
 
 ```shell
-docker build -t tutum/lamp .
+docker build -t mdelapenya/lamp .
 ```
 
 You can now push your new image to the registry:
 
 ```shell
-docker push tutum/lamp
+docker push mdelapenya/lamp
 ```
 
 ## Running your LAMP docker image
@@ -17,7 +17,7 @@ docker push tutum/lamp
 Start your image binding the external ports 80 and 3306 in all interfaces to your container:
 
 ```shell
-docker run -d -p 80:80 -p 3306:3306 tutum/lamp
+docker run -d -p 80:80 -p 3306:3306 mdelapenya/lamp
 ```
 
 Test your deployment:
@@ -34,7 +34,7 @@ In order to replace the "Hello World" application that comes bundled with this d
 create a new `Dockerfile` in an empty folder with the following contents:
 
 ```shell
-FROM tutum/lamp:latest
+FROM mdelapenya/lamp:latest
 RUN rm -fr /app && git clone https://github.com/username/customapp.git /app
 EXPOSE 80 3306
 CMD ["/run.sh"]
