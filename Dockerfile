@@ -3,8 +3,12 @@ MAINTAINER Fernando Mayo <fernando@tutum.co>, Feng Honglin <hfeng@tutum.co>
 
 # Install packages
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && \
-  apt-get -y install supervisor git apache2 libapache2-mod-php5 mysql-server php5-mysql pwgen php-apc php5-mcrypt && \
+RUN echo 'deb http://repo.mysql.com/apt/debian jessie mysql-5.7' > /etc/apt/sources.list.d/mysql-5.7.list && \
+  gpg --export 5072E1F5 > /etc/apt/trusted.gpg.d/5072E1F5.gpg && \
+  gpg --recv-keys 5072E1F5 && \
+  gpg --export 5072E1F5 > /etc/apt/trusted.gpg.d/5072E1F5.gpg && \
+  apt-get update && \
+  apt-get -y install supervisor git apache2 libapache2-mod-php5 mysql-server="5.7.17-1debian8" php5-mysql pwgen php-apc php5-mcrypt && \
   echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 # Add image configuration and scripts
